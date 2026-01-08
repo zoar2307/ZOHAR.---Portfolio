@@ -24,19 +24,6 @@ export const projects = [
             githubUrl: "#",
             liveUrl: "https://sundae.onrender.com/"
         }
-    },
-    // Add more projects here
-    // {
-    //     siteUrl: "https://another-project.com",
-    //     siteTitle: "Another Project",
-    //     projectInfo: {
-    //         title: "Another Project",
-    //         description: "Project description...",
-    //         features: ["Feature 1", "Feature 2"],
-    //         techStack: ["React", "TypeScript"],
-    //         githubUrl: "https://github.com/...",
-    //         liveUrl: "https://another-project.com"
-    //     }
-    // }
+    }
 ];
 

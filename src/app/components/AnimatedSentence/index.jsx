@@ -56,9 +56,9 @@ export default function AnimatedSentence() {
     });
 
     return (
-        <section ref={sectionRef} className="relative h-screen overflow-hidden">
+        <section ref={sectionRef} className="relative h-screen overflow-hidden" aria-label="Animated introduction">
             <div className="grid h-full place-items-center">
-                <p ref={textRef} className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold text-neutral-800 select-none px-4">
+                <p ref={textRef} className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold text-neutral-800 select-none px-4" aria-label="ZOHAR.">
                     <span className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl h-title font-bold">
                         ZOHAR<span className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-red-700">.</span>
                     </span>
@@ -68,8 +68,9 @@ export default function AnimatedSentence() {
             {/* Overlay */}
             <div
                 ref={overlayRef}
-                className="pointer-events-none absolute inset-0 z-10 bg-black will-change-[clip-path] w-[700vw] md:w-[700vw] lg:w[700vw]"
+                className="pointer-events-none absolute inset-0 z-10 bg-black will-change-[clip-path] w-[700vw] md:w-[700vw] lg:w-[700vw]"
                 style={{ clipPath: "circle(0px at 50% 50%)" }}
+                aria-hidden="true"
             />
 
             {/* SVG Shapes Layer */}

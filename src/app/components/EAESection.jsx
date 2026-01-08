@@ -83,7 +83,7 @@ export default function EAESection({
                             </button>
                         )}
                     </div>
-                    <div className="relative aspect-video bg-neutral-900 overflow-hidden">
+                    <div className="relative aspect-video bg-neutral-900 overflow-hidden" role="region" aria-label={showInfo ? "Project information" : "Project preview"}>
                         <AnimatePresence mode="wait">
                             {showInfo && projectInfo ? (
                                 <motion.div
@@ -93,9 +93,11 @@ export default function EAESection({
                                     exit={{ opacity: 0, y: -20 }}
                                     transition={{ duration: 0.3 }}
                                     className="absolute inset-0 bg-gradient-to-br from-neutral-900 via-neutral-800 to-neutral-900 p-3 sm:p-4 md:p-6 lg:p-8 overflow-y-auto"
+                                    role="article"
+                                    aria-labelledby={`project-title-${siteTitle.replace(/\s+/g, '-').toLowerCase()}`}
                                 >
                                     <div className="max-w-2xl mx-auto w-full px-4">
-                                        <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-2 sm:mb-3 md:mb-4 text-center sm:text-left">
+                                        <h3 id={`project-title-${siteTitle.replace(/\s+/g, '-').toLowerCase()}`} className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-2 sm:mb-3 md:mb-4 text-center sm:text-left">
                                             {projectInfo.title}
                                         </h3>
                                         {projectInfo.description && (
@@ -172,11 +174,13 @@ export default function EAESection({
                                     <div className="relative w-full h-full flex justify-center items-center">
                                         <img
                                             src={siteImage}
-                                            alt={siteTitle}
-                                            className="w-[50%]  object-fit object-center"
+                                            alt={`${siteTitle} - Project screenshot`}
+                                            className="w-[50%] object-cover object-center"
                                             loading="lazy"
+                                            decoding="async"
+                                            width={800}
+                                            height={600}
                                         />
-
                                     </div>
                                 </motion.div>
                             ) : isMobile ? (
@@ -231,11 +235,13 @@ export default function EAESection({
                                     <iframe
                                         src={siteUrl}
                                         className="w-full h-full border-0"
-                                        title={siteTitle}
+                                        title={`${siteTitle} - Live preview`}
                                         onLoad={() => setIsLoading(false)}
                                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                         allowFullScreen
                                         sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
+                                        loading="lazy"
+                                        aria-label={`${siteTitle} preview`}
                                     />
                                 </motion.div>
                             )}
