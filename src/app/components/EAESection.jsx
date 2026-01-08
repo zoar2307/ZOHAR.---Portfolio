@@ -60,10 +60,11 @@ export default function EAESection({
             <AnimatePresence>
                 {isFullscreen && (
                     <motion.div
+                        key="fullscreen-modal"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        transition={{ duration: 0.3 }}
+                        transition={{ duration: 0.3, ease: "easeInOut" }}
                         className="fixed inset-0 z-50 bg-black"
                         onClick={handleToggleFullscreen}
                     >
@@ -88,10 +89,21 @@ export default function EAESection({
                                     <ExternalLink className="w-4 h-4" />
                                 </a>
                                 <button
-                                    onClick={handleToggleFullscreen}
-                                    onTouchStart={(e) => e.stopPropagation()}
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        handleToggleFullscreen(e);
+                                    }}
+                                    onTouchStart={(e) => {
+                                        e.stopPropagation();
+                                        e.preventDefault();
+                                    }}
+                                    onTouchEnd={(e) => {
+                                        e.stopPropagation();
+                                        handleToggleFullscreen(e);
+                                    }}
                                     onMouseDown={(e) => e.stopPropagation()}
-                                    className="absolute right-4 flex items-center justify-center w-8 h-8 rounded-full bg-gray-700 hover:bg-gray-600 text-white transition-colors duration-200 shadow-sm z-30 cursor-pointer"
+                                    className="absolute right-4 flex items-center justify-center w-8 h-8 rounded-full bg-gray-700 hover:bg-gray-600 active:bg-gray-500 text-white transition-colors duration-200 shadow-sm z-30 cursor-pointer touch-manipulation"
+                                    style={{ WebkitTapHighlightColor: 'transparent' }}
                                     aria-label="Exit fullscreen"
                                     title="Exit fullscreen"
                                     type="button"
@@ -101,7 +113,15 @@ export default function EAESection({
                             </div>
 
                             {/* Fullscreen Content - Always show iframe in fullscreen */}
-                            <div className="relative flex-1 bg-neutral-900 overflow-hidden">
+                            <div
+                                className="relative flex-1 bg-neutral-900 overflow-hidden"
+                                onClick={(e) => {
+                                    // Only close if clicking the container, not the iframe
+                                    if (e.target === e.currentTarget) {
+                                        handleToggleFullscreen(e);
+                                    }
+                                }}
+                            >
                                 {isLoading && (
                                     <div className="absolute inset-0 grid place-items-center text-neutral-300 z-10">
                                         <div className="flex flex-col items-center gap-2">
@@ -112,7 +132,7 @@ export default function EAESection({
                                 )}
                                 <iframe
                                     src={siteUrl}
-                                    className="w-full h-full border-0"
+                                    className="w-full h-full border-0 pointer-events-auto"
                                     title={`${siteTitle} - Fullscreen preview`}
                                     onLoad={() => setIsLoading(false)}
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
