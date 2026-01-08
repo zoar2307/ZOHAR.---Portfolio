@@ -6,7 +6,9 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "update-readme": "node scripts/update-readme.js",
+    "precommit": "npm run update-readme"
   },
   "dependencies": {
     "@react-three/drei": "^10.6.1",

@@ -16,8 +16,8 @@ A modern, interactive portfolio website built with Next.js, featuring smooth ani
 
 ## 🚀 Technologies Used
 
-- **Framework**: Next.js 15.4.6
-- **UI Library**: React 19.1.0
+- **Framework**: Next.js 16.1.1
+- **UI Library**: React 19.2.3
 - **Styling**: Tailwind CSS 4
 - **Animations**: 
   - GSAP 3.13.0 (GreenSock Animation Platform)
@@ -178,6 +178,37 @@ vercel
 - `npm run build` - Build for production
 - `npm run start` - Start production server
 - `npm run lint` - Run ESLint
+- `npm run update-readme` - Auto-update README with latest package versions
+
+## 🤖 Auto-Update README
+
+The project includes an automated README updater that:
+
+- **Automatically updates package versions** in the README when dependencies change
+- **Adds/updates timestamp** showing when the README was last updated
+- **Runs automatically** via git pre-commit hook before each commit
+- **GitHub Action** also updates README on pushes to master/main when `package.json` changes
+
+### Manual Update
+
+To manually update the README:
+
+```bash
+npm run update-readme
+```
+
+The script reads `package.json` and updates:
+- Next.js version
+- React version
+- Tailwind CSS version
+- GSAP version
+- Framer Motion version
+- TypeScript version
+- Last updated timestamp
+
+## 📅 Last Updated
+
+**2026-01-08** at 08:36:40
 
 ## 📄 License
 

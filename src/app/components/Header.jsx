@@ -8,16 +8,20 @@ export default function Header() {
     const [isSocialOpen, setIsSocialOpen] = useState(false)
 
     return (
-        <header className=' fixed  flex left-0 right-0 top-0 h-16 pb-36 z-50'>
+        <header className=' fixed  flex left-0 right-0 top-0 h-16 pb-0 z-50'>
             <div className='fixed left-0 right-0 -top-4 h-20 backdrop-blur-xl bg-[linear-gradient(180deg,rgba(221,226,238,0.40)_0%,rgba(221,226,238,0.00)_100%)] mask-[linear-gradient(to_bottom,black_65%,rgba(0,0,0,0.88)_75%,transparent_100%)]'></div>
             <div className='fixed  flex left-0 right-0 top-0 h-16 px-4 sm:px-8 md:px-16 lg:px-28 items-center gap-4 sm:gap-6 md:gap-9 justify-between  z-10'>
                 <div>
                     <span className='text-xl sm:text-2xl md:text-3xl h-title font-bold'><a href="#">ZOHAR<span className='text-xl sm:text-2xl md:text-3xl text-red-700'>.</span></a></span>
                 </div>
-                <button className='flex items-center justify-center gap-2 h-8 px-3 sm:px-4 rounded-md bg-[var(--Dark2)] cursor-pointer' >
+                <a
+                    href="/resume.pdf"
+                    download
+                    className='flex items-center justify-center gap-2 h-8 px-3 sm:px-4 rounded-md bg-[var(--Dark2)] cursor-pointer hover:opacity-90 transition-opacity'
+                >
                     <span className='text-white text-xs sm:text-sm'>My resume</span>
                     <FileDown color='white' className='w-3.5 h-3.5 sm:w-4 sm:h-4' />
-                </button>
+                </a>
             </div>
         </header>
     )

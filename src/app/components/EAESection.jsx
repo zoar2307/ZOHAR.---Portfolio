@@ -39,20 +39,23 @@ export default function EAESection({
                         rotate: [0, -0.3, 0, 0.3, 0]
                     }}
                     transition={{ duration: 6, ease: "easeInOut", repeat: Infinity }}
-                    whileInView={{ x: 10, transition: { type: "spring", stiffness: 120 } }}
+                    whileInView={{ x: 0, transition: { type: "spring", stiffness: 120 } }}
                     className="my-8 sm:my-16 md:my-20 lg:my-26 mx-auto w-full max-w-full overflow-hidden rounded-2xl border border-black/10 bg-white/80 shadow-[0_20px_60px_-12px_rgba(0,0,0,0.25)] ring-1 ring-black/5 backdrop-blur relative"
-                    style={{ pointerEvents: 'auto' }}
                 >
-                    <div className="relative flex h-10 sm:h-12 items-center gap-2 border-b border-black/10 bg-neutral-50/80 px-3 z-20" style={{ pointerEvents: 'auto' }}>
-                        <span className="absolute left-3 h-3 w-3 rounded-full bg-red-400" />
-                        <span className="absolute left-7 h-3 w-3 rounded-full bg-yellow-400" />
-                        <span className="absolute left-11 h-3 w-3 rounded-full bg-green-400" />
+                    <div className="relative flex h-10 sm:h-12 items-center gap-2 border-b border-black/10 bg-neutral-50/80 px-3 z-20">
+                        <span className="absolute left-3 h-3 w-3 rounded-full bg-red-400 pointer-events-none" />
+                        <span className="absolute left-7 h-3 w-3 rounded-full bg-yellow-400 pointer-events-none" />
+                        <span className="absolute left-11 h-3 w-3 rounded-full bg-green-400 pointer-events-none" />
                         <a
                             href={siteUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="mx-auto text-xs sm:text-sm text-neutral-500 truncate px-16 sm:px-20 hover:text-blue-600 transition-colors cursor-pointer flex items-center gap-1"
-                            onClick={(e) => e.stopPropagation()}
+                            className="mx-auto text-xs sm:text-sm text-neutral-500 truncate px-16 sm:px-20 hover:text-blue-600 transition-colors cursor-pointer flex items-center gap-1 z-10 relative"
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                e.preventDefault();
+                                window.open(siteUrl, '_blank', 'noopener,noreferrer');
+                            }}
                         >
                             {siteUrl}
                             <ExternalLink className="w-3 h-3 hidden sm:inline" />
@@ -63,8 +66,11 @@ export default function EAESection({
                                 onTouchStart={(e) => {
                                     e.stopPropagation();
                                 }}
-                                className="absolute right-3 flex items-center justify-center w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-blue-500 hover:bg-blue-600 active:bg-blue-700 text-white transition-colors duration-200 shadow-sm z-[100] cursor-pointer touch-manipulation"
-                                style={{ pointerEvents: 'auto', WebkitTapHighlightColor: 'transparent' }}
+                                onMouseDown={(e) => {
+                                    e.stopPropagation();
+                                }}
+                                className="absolute right-3 flex items-center justify-center w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-blue-500 hover:bg-blue-600 active:bg-blue-700 text-white transition-colors duration-200 shadow-sm z-30 cursor-pointer touch-manipulation"
+                                style={{ WebkitTapHighlightColor: 'transparent' }}
                                 aria-label={showInfo ? "Show site" : "Show information"}
                                 title={showInfo ? "Show site" : "Show information"}
                                 type="button"
@@ -128,13 +134,14 @@ export default function EAESection({
                                             </div>
                                         )}
 
-                                        <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 md:gap-4 justify-center sm:justify-start">
+                                        <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 md:gap-4 justify-center sm:justify-start relative z-10">
                                             {projectInfo.liveUrl && (
                                                 <a
                                                     href={projectInfo.liveUrl}
                                                     target="_blank"
                                                     rel="noopener noreferrer"
-                                                    className="px-3 py-1.5 sm:px-4 sm:py-2 md:px-6 md:py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-xs sm:text-sm md:text-base font-medium transition-colors duration-200 text-center"
+                                                    onClick={(e) => e.stopPropagation()}
+                                                    className="px-3 py-1.5 sm:px-4 sm:py-2 md:px-6 md:py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-xs sm:text-sm md:text-base font-medium transition-colors duration-200 text-center cursor-pointer"
                                                 >
                                                     View Live Site
                                                 </a>
@@ -144,12 +151,32 @@ export default function EAESection({
                                                     href={projectInfo.githubUrl}
                                                     target="_blank"
                                                     rel="noopener noreferrer"
-                                                    className="px-3 py-1.5 sm:px-4 sm:py-2 md:px-6 md:py-3 bg-neutral-700 hover:bg-neutral-600 text-white rounded-lg text-xs sm:text-sm md:text-base font-medium transition-colors duration-200 text-center"
+                                                    onClick={(e) => e.stopPropagation()}
+                                                    className="px-3 py-1.5 sm:px-4 sm:py-2 md:px-6 md:py-3 bg-neutral-700 hover:bg-neutral-600 text-white rounded-lg text-xs sm:text-sm md:text-base font-medium transition-colors duration-200 text-center cursor-pointer"
                                                 >
                                                     View on GitHub
                                                 </a>
                                             )}
                                         </div>
+                                    </div>
+                                </motion.div>
+                            ) : isMobile && siteImage ? (
+                                <motion.div
+                                    key="mobile-image"
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    exit={{ opacity: 0 }}
+                                    transition={{ duration: 0.3 }}
+                                    className="absolute inset-0 bg-neutral-900 overflow-hidden"
+                                >
+                                    <div className="relative w-full h-full flex justify-center items-center">
+                                        <img
+                                            src={siteImage}
+                                            alt={siteTitle}
+                                            className="w-[50%]  object-fit object-center"
+                                            loading="lazy"
+                                        />
+
                                     </div>
                                 </motion.div>
                             ) : isMobile ? (
@@ -161,62 +188,28 @@ export default function EAESection({
                                     transition={{ duration: 0.3 }}
                                     className="absolute inset-0 bg-neutral-900 overflow-hidden flex flex-col items-center justify-center"
                                 >
-                                    {siteImage ? (
-                                        <div className="relative w-full h-full flex items-center justify-center">
-                                            <img
-                                                src={siteImage}
-                                                alt={siteTitle}
-                                                className="w-full h-full object-cover object-top"
-                                                onError={(e) => {
-                                                    e.target.style.display = 'none';
-                                                    e.target.nextElementSibling.style.display = 'flex';
-                                                }}
-                                            />
-                                            <div className="absolute inset-0 bg-gradient-to-br from-neutral-900/80 via-neutral-800/60 to-neutral-900/80 hidden flex-col items-center justify-center p-4">
-                                                <div className="text-center max-w-md">
-                                                    <h3 className="text-xl font-bold text-white mb-3">
-                                                        {projectInfo?.title || siteTitle}
-                                                    </h3>
-                                                    {projectInfo?.description && (
-                                                        <p className="text-sm text-neutral-300 mb-6 leading-relaxed">
-                                                            {projectInfo.description}
-                                                        </p>
-                                                    )}
-                                                    <a
-                                                        href={siteUrl}
-                                                        target="_blank"
-                                                        rel="noopener noreferrer"
-                                                        className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-sm font-medium transition-colors duration-200"
-                                                    >
-                                                        Open Site
-                                                        <ExternalLink className="w-4 h-4" />
-                                                    </a>
-                                                </div>
-                                            </div>
+                                    <div className="w-full h-full bg-gradient-to-br from-neutral-900 via-neutral-800 to-neutral-900 p-4 flex flex-col items-center justify-center">
+                                        <div className="text-center max-w-md">
+                                            <h3 className="text-xl font-bold text-white mb-3">
+                                                {projectInfo?.title || siteTitle}
+                                            </h3>
+                                            {projectInfo?.description && (
+                                                <p className="text-sm text-neutral-300 mb-6 leading-relaxed">
+                                                    {projectInfo.description}
+                                                </p>
+                                            )}
+                                            <a
+                                                href={siteUrl}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                onClick={(e) => e.stopPropagation()}
+                                                className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-sm font-medium transition-colors duration-200 cursor-pointer relative z-10"
+                                            >
+                                                Open Site
+                                                <ExternalLink className="w-4 h-4" />
+                                            </a>
                                         </div>
-                                    ) : (
-                                        <div className="w-full h-full bg-gradient-to-br from-neutral-900 via-neutral-800 to-neutral-900 p-4 flex flex-col items-center justify-center">
-                                            <div className="text-center max-w-md">
-                                                <h3 className="text-xl font-bold text-white mb-3">
-                                                    {projectInfo?.title || siteTitle}
-                                                </h3>
-                                                {projectInfo?.description && (
-                                                    <p className="text-sm text-neutral-300 mb-6 leading-relaxed">
-                                                        {projectInfo.description}
-                                                    </p>
-                                                )}
-                                                <a
-                                                    href={siteUrl}
-                                                    target="_blank"
-                                                    rel="noopener noreferrer"
-                                                    className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-sm font-medium transition-colors duration-200"
-                                                >
-                                                    Open Site
-                                                    <ExternalLink className="w-4 h-4" />
-                                                </a>
-                                            </div>
-                                        </div>
-                                    )}
+                                    </div>
                                 </motion.div>
                             ) : (
                                 <motion.div

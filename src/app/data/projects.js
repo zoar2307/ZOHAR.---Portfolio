@@ -2,7 +2,7 @@ export const projects = [
     {
         siteUrl: "https://sundae.onrender.com/",
         siteTitle: "Sundae - Monday.com Clone",
-        siteImage: "/images/sundae-screenshot.png", // Add path to screenshot image
+        siteImage: "/images/sundae.png", // Screenshot for mobile display
         projectInfo: {
             title: "Sundae - Monday.com Clone",
             description: "A full-featured task management application inspired by Monday.com, built with modern web technologies.",
