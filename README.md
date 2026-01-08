@@ -1,36 +1,199 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Zohar Portfolio
 
-## Getting Started
+A modern, interactive portfolio website built with Next.js, featuring smooth animations, responsive design, and dynamic project showcases.
 
-First, run the development server:
+## ✨ Features
 
+- **Responsive Design**: Fully responsive layout that works seamlessly on mobile, tablet, and desktop devices
+- **Smooth Animations**: Powered by GSAP and Framer Motion for fluid, engaging animations
+- **Interactive Project Showcases**: Display your projects with live previews, screenshots, and detailed information
+- **Animated Sections**: 
+  - Hero section with floating interactive cubes
+  - Scroll-triggered animated sentences with multiple scenes
+  - Collapsible project information panels
+- **Modern UI**: Beautiful gradient backgrounds, glassmorphism effects, and smooth transitions
+- **Performance Optimized**: Built with Next.js 15 for optimal performance and SEO
+
+## 🚀 Technologies Used
+
+- **Framework**: Next.js 15.4.6
+- **UI Library**: React 19.1.0
+- **Styling**: Tailwind CSS 4
+- **Animations**: 
+  - GSAP 3.13.0 (GreenSock Animation Platform)
+  - Framer Motion 12.23.12
+- **Icons**: Lucide React
+- **Type Safety**: TypeScript 5
+
+## 📦 Installation
+
+1. Clone the repository:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone <your-repo-url>
+cd ZOHAR.---Portfolio
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies:
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Run the development server:
+```bash
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
 
-## Learn More
+## 🏗️ Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+src/
+├── app/
+│   ├── components/
+│   │   ├── AnimatedSentence/    # Scroll-triggered animated sentences
+│   │   │   ├── index.jsx        # Main component
+│   │   │   ├── constants.js     # Animation constants
+│   │   │   ├── Shapes.jsx       # SVG shapes for animations
+│   │   │   ├── TextSection.jsx  # Reusable text section component
+│   │   │   └── useAnimation.js  # GSAP animation hook
+│   │   ├── AiBoxScroll.jsx      # Collapsible info box
+│   │   ├── EAESection.jsx       # Project showcase component
+│   │   ├── Header.jsx           # Navigation header
+│   │   ├── Hero.jsx             # Hero section with cubes
+│   │   └── InformationCube.jsx  # Interactive floating cubes
+│   ├── data/
+│   │   └── projects.js          # Project data configuration
+│   ├── globals.css              # Global styles
+│   ├── layout.jsx               # Root layout
+│   └── page.jsx                 # Main page component
+└── public/
+    └── images/                  # Static images (add screenshots here)
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📝 Adding Projects
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+To add a new project, edit `/src/app/data/projects.js`:
 
-## Deploy on Vercel
+```javascript
+{
+  siteUrl: "https://your-project-url.com",
+  siteTitle: "Your Project Name",
+  siteImage: "/images/your-project-screenshot.png", // Optional: screenshot for mobile
+  projectInfo: {
+    title: "Your Project Name",
+    description: "A brief description of your project...",
+    features: [
+      "Feature 1",
+      "Feature 2",
+      "Feature 3"
+    ],
+    techStack: [
+      "React",
+      "Node.js",
+      "TypeScript"
+    ],
+    githubUrl: "https://github.com/yourusername/your-repo",
+    liveUrl: "https://your-project-url.com"
+  }
+}
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Adding Screenshots
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Create an `images` folder in the `public` directory if it doesn't exist
+2. Add your project screenshot (recommended size: 1920x1080 or similar)
+3. Update the `siteImage` path in your project data
+
+## 🎨 Customization
+
+### Changing Colors
+
+Edit `/src/app/globals.css` and component files to customize:
+- Gradient backgrounds
+- Text colors
+- Accent colors
+- Shadow effects
+
+### Modifying Animations
+
+- **GSAP Animations**: Edit `/src/app/components/AnimatedSentence/useAnimation.js`
+- **Framer Motion**: Edit individual component files that use `motion.div`
+
+### Responsive Breakpoints
+
+The project uses Tailwind CSS breakpoints:
+- `sm`: 640px
+- `md`: 768px
+- `lg`: 1024px
+- `xl`: 1280px
+- `2xl`: 1536px
+
+## 🚢 Deployment
+
+### Build for Production
+
+```bash
+npm run build
+npm start
+```
+
+### Deploy to Vercel
+
+The easiest way to deploy is using [Vercel](https://vercel.com):
+
+1. Push your code to GitHub
+2. Import your repository on Vercel
+3. Vercel will automatically detect Next.js and deploy
+
+Or use the Vercel CLI:
+
+```bash
+npm i -g vercel
+vercel
+```
+
+## 📱 Features Breakdown
+
+### AnimatedSentence Component
+- Three-scene scroll animation with text reveals
+- Floating SVG shapes that animate on scroll
+- Smooth transitions between scenes
+- Fully responsive overlay effects
+
+### EAESection Component
+- Interactive project previews with iframe support
+- Information panel toggle button
+- Mobile-optimized screenshot display
+- Clickable project links
+
+### Hero Section
+- Floating interactive information cubes
+- Responsive text sizing
+- Smooth hover animations
+
+## 🔧 Scripts
+
+- `npm run dev` - Start development server with Turbopack
+- `npm run build` - Build for production
+- `npm run start` - Start production server
+- `npm run lint` - Run ESLint
+
+## 📄 License
+
+This project is private and personal portfolio use only.
+
+## 👤 Author
+
+**Zohar**
+
+## 🙏 Acknowledgments
+
+- Built with [Next.js](https://nextjs.org/)
+- Animations powered by [GSAP](https://greensock.com/gsap/) and [Framer Motion](https://www.framer.com/motion/)
+- Icons from [Lucide](https://lucide.dev/)
+- Styling with [Tailwind CSS](https://tailwindcss.com/)
+
+---
+
+**Note**: Make sure to add your project screenshots to `public/images/` and update the `siteImage` paths in your project data for the mobile preview to work correctly.
