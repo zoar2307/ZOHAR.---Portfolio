@@ -16,7 +16,7 @@ export default function Header() {
                 </div>
                 <button className='flex items-center justify-center gap-2 h-8 px-3 sm:px-4 rounded-md bg-[var(--Dark2)] cursor-pointer' >
                     <span className='text-white text-xs sm:text-sm'>My resume</span>
-                    <FileDown color='white' size={14} className='sm:w-4 sm:h-4' />
+                    <FileDown color='white' className='w-3.5 h-3.5 sm:w-4 sm:h-4' />
                 </button>
             </div>
         </header>

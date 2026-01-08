@@ -26,7 +26,7 @@ export default function Hero() {
                 </h2>
                 <button className='flex items-center justify-center gap-2 h-10 sm:h-12 px-6 sm:px-8 rounded-md bg-[var(--Dark2)] cursor-pointer my-4 shadow-2xl'>
                     <span className='text-white text-xs sm:text-sm'>My resume </span>
-                    <FileDown color='white' size={14} className='sm:w-4 sm:h-4' />
+                    <FileDown color='white' className='w-3.5 h-3.5 sm:w-4 sm:h-4' />
                 </button>
             </div>
             <div className='relative w-full max-w-[840px] h-0 sm:h-auto'>
