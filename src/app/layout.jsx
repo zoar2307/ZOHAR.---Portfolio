@@ -29,10 +29,9 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className="overflow-x-hidden">
       <body
-
-        className={`${poppins.variable} ${inter.variable} ${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${poppins.variable} ${inter.variable} ${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden`}
       >
         {children}
       </body>
