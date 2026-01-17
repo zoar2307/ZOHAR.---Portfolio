@@ -7,12 +7,21 @@ A modern, interactive portfolio website built with Next.js, featuring smooth ani
 - **Responsive Design**: Fully responsive layout that works seamlessly on mobile, tablet, and desktop devices
 - **Smooth Animations**: Powered by GSAP and Framer Motion for fluid, engaging animations
 - **Interactive Project Showcases**: Display your projects with live previews, screenshots, and detailed information
+  - Fullscreen preview mode for immersive project viewing
+  - Mobile-optimized screenshot display
+  - Toggle between live preview and project information
 - **Animated Sections**: 
   - Hero section with floating interactive cubes
   - Scroll-triggered animated sentences with multiple scenes
-  - Collapsible project information panels
+  - Collapsible "About Me" information box
+  - Skills section with categorized technical expertise
+  - Professional experience timeline
+- **Resume Preview**: Fullscreen PDF resume preview with download functionality
 - **Modern UI**: Beautiful gradient backgrounds, glassmorphism effects, and smooth transitions
-- **Performance Optimized**: Built with Next.js 15 for optimal performance and SEO
+- **Performance Optimized**: Built with Next.js 16 for optimal performance and SEO
+- **SEO & Accessibility**: Comprehensive metadata, structured data, and accessibility features
+- **Analytics**: Integrated Vercel Analytics for performance tracking
+- **Internationalization Ready**: Centralized custom labels for easy content management
 
 ## 🚀 Technologies Used
 
@@ -24,6 +33,8 @@ A modern, interactive portfolio website built with Next.js, featuring smooth ani
   - Framer Motion 12.23.12
 - **Icons**: Lucide React
 - **Type Safety**: TypeScript 5
+- **Analytics**: Vercel Analytics 1.6.1
+- **3D Graphics**: React Three Fiber 9.3.0 & Drei 10.6.1 (for interactive cubes)
 
 ## 📦 Installation
 
@@ -53,22 +64,31 @@ src/
 │   ├── components/
 │   │   ├── AnimatedSentence/    # Scroll-triggered animated sentences
 │   │   │   ├── index.jsx        # Main component
-│   │   │   ├── constants.js     # Animation constants
+│   │   │   ├── constants.js     # Animation constants & scene data
 │   │   │   ├── Shapes.jsx       # SVG shapes for animations
 │   │   │   ├── TextSection.jsx  # Reusable text section component
 │   │   │   └── useAnimation.js  # GSAP animation hook
-│   │   ├── AiBoxScroll.jsx      # Collapsible info box
+│   │   ├── AiBoxScroll.jsx      # Collapsible "About Me" box
 │   │   ├── EAESection.jsx       # Project showcase component
-│   │   ├── Header.jsx           # Navigation header
+│   │   ├── Header.jsx           # Navigation header with resume button
 │   │   ├── Hero.jsx             # Hero section with cubes
-│   │   └── InformationCube.jsx  # Interactive floating cubes
+│   │   ├── InformationCube.jsx  # Interactive floating cubes
+│   │   ├── ProjectsTitle.jsx    # Projects section title
+│   │   ├── ResumePreview.jsx    # PDF resume preview modal
+│   │   ├── SkillsSection.jsx    # Technical skills display
+│   │   └── WorkflowExperience.jsx # Professional experience timeline
+│   ├── customLabels/
+│   │   └── customLabels.js      # Centralized text content (i18n ready)
 │   ├── data/
 │   │   └── projects.js          # Project data configuration
+│   ├── utils/
+│   │   └── utils.js             # Utility functions
 │   ├── globals.css              # Global styles
-│   ├── layout.jsx               # Root layout
+│   ├── layout.jsx               # Root layout with SEO & Analytics
 │   └── page.jsx                 # Main page component
 └── public/
-    └── images/                  # Static images (add screenshots here)
+    ├── images/                  # Static images (screenshots, etc.)
+    └── ZOHAR YEVELKIN - CV.pdf  # Resume PDF
 ```
 
 ## 📝 Adding Projects
@@ -163,14 +183,39 @@ vercel
 
 ### EAESection Component
 - Interactive project previews with iframe support
+- Fullscreen preview mode (mobile and desktop)
 - Information panel toggle button
 - Mobile-optimized screenshot display
-- Clickable project links
+- Clickable project links in header
+- Smooth enter/exit animations
 
 ### Hero Section
 - Floating interactive information cubes
 - Responsive text sizing
 - Smooth hover animations
+- Resume download button
+
+### Skills Section
+- Categorized technical skills display
+- Clean, minimal design
+- Responsive grid layout
+
+### Experience Section
+- Professional timeline layout
+- Company and role information
+- Technology tags for each position
+- Responsive design
+
+### Resume Preview
+- Fullscreen PDF preview modal
+- Download functionality
+- Keyboard navigation (ESC to close)
+- Prevents background scrolling
+
+### Custom Labels System
+- Centralized text content management
+- Easy to update all user-facing text
+- Ready for internationalization (i18n)
 
 ## 🔧 Scripts
 
@@ -206,9 +251,25 @@ The script reads `package.json` and updates:
 - TypeScript version
 - Last updated timestamp
 
+## 🔗 Social Links
+
+The portfolio includes structured data with social media links:
+- **GitHub**: [https://github.com/zoar2307](https://github.com/zoar2307)
+- **LinkedIn**: [https://www.linkedin.com/in/zohar-yevelkin/](https://www.linkedin.com/in/zohar-yevelkin/)
+
+These links are included in the SEO structured data for better discoverability.
+
 ## 📅 Last Updated
 
-**2026-01-17** at 18:30:30
+**2026-01-17** at 18:33:07
+
+## 🔍 SEO & Accessibility Features
+
+- **Comprehensive Metadata**: Title, description, keywords, Open Graph, Twitter Cards
+- **Structured Data**: JSON-LD schema markup for Person type
+- **Accessibility**: ARIA labels, semantic HTML, skip links, keyboard navigation
+- **Performance**: Optimized images, lazy loading, efficient animations
+- **Analytics**: Vercel Analytics integration for performance tracking
 
 ## 📄 License
 
@@ -216,7 +277,10 @@ This project is private and personal portfolio use only.
 
 ## 👤 Author
 
-**Zohar**
+**Zohar Yevelkin**
+- Email: zoar2307@gmail.com
+- GitHub: [@zoar2307](https://github.com/zoar2307)
+- LinkedIn: [zohar-yevelkin](https://www.linkedin.com/in/zohar-yevelkin/)
 
 ## 🙏 Acknowledgments
 
