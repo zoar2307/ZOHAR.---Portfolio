@@ -4,7 +4,7 @@ const experienceItems = [
     {
         role: "Full-Stack & Salesforce Developer",
         company: "Bank Leumi",
-        period: "2025 – Present",
+        period: "Jun 2025 – Present",
         description: "Develop enterprise Salesforce solutions using Apex and LWC. Work with high volumes of data; focus on performance and maintainability. Collaborate in a team environment with agile delivery. Worked on major projects including the 'Write to a Banker' experience (Pepper / Bank Leumi).",
         technologies: ["Salesforce", "Apex", "Lightning Web Components", "LWC", "Enterprise Systems"],
         icon: Briefcase
@@ -12,7 +12,7 @@ const experienceItems = [
     {
         role: "Full-Stack Developer",
         company: "Coding Academy (Bootcamp & Mentoring)",
-        period: "Feb 2024 – Jun 2025",
+        period: "Feb 2025 – Jun 2025",
         description: "Built end-to-end projects using React, Vue, Angular, Express, MongoDB. Conducted code reviews for junior developers (architecture, clean patterns). Mentored students on database integrations, cloud APIs, and deployment.",
         technologies: ["React", "Vue", "Angular", "Express.js", "MongoDB", "Node.js"],
         icon: Code
@@ -24,7 +24,7 @@ export default function WorkflowExperience() {
         <section className="relative py-12 sm:py-16 md:py-20 overflow-hidden">
             {/* Smooth gradient background - continues from previous section */}
             <div className="absolute inset-0 bg-gradient-to-b from-purple-200/10 via-pink-200/10 to-purple-200/10"></div>
-            
+
             <div className="relative max-w-[840px] mx-auto px-4 sm:px-8 md:px-16 lg:px-28">
                 <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl h-title font-bold bg-gradient-to-b from-gray-900 via-purple-800 to-pink-600 bg-clip-text text-transparent mb-10 sm:mb-14">
                     Experience
@@ -33,7 +33,7 @@ export default function WorkflowExperience() {
                 <div className="relative">
                     {/* Timeline line */}
                     <div className="absolute left-5 sm:left-6 top-0 bottom-0 w-0.5 bg-gray-200"></div>
-                    
+
                     <div className="space-y-10 sm:space-y-12">
                         {experienceItems.map((item) => {
                             const Icon = item.icon
@@ -46,7 +46,7 @@ export default function WorkflowExperience() {
                                     <div className="absolute left-3 sm:left-4 top-2 w-4 h-4 sm:w-5 sm:h-5 bg-white border-2 border-gray-300 rounded-full flex items-center justify-center">
                                         <div className="w-2 h-2 sm:w-2.5 sm:h-2.5 bg-gray-400 rounded-full"></div>
                                     </div>
-                                    
+
                                     <div className="bg-white rounded-lg border border-gray-200 p-5 sm:p-6 shadow-sm hover:shadow-md transition-shadow">
                                         <div className="flex items-start gap-3 sm:gap-4 mb-3">
                                             <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-gray-50 flex items-center justify-center border border-gray-200">
@@ -64,11 +64,11 @@ export default function WorkflowExperience() {
                                                 </span>
                                             </div>
                                         </div>
-                                        
+
                                         <p className="text-sm sm:text-base text-gray-600 mb-4 leading-relaxed">
                                             {item.description}
                                         </p>
-                                        
+
                                         <div className="flex flex-wrap gap-2">
                                             {item.technologies.map((tech) => (
                                                 <span
