@@ -28,52 +28,33 @@ export const labels = {
             {
                 title: "My Journey Into Development",
                 subtitle: "Foundation",
-                text: `"My professional journey began with comprehensive full-stack training,
-where I mastered the fundamentals: JavaScript, Node.js, database systems, and React.
-I discovered a passion for frontend development and user experience design.
-Through React and GSAP, I transform static designs into dynamic, interactive experiences.
-Today, I specialize in building clean, performant user interfaces
-and crafting digital experiences that engage and inspire."`
+                text: `"My journey into development started with intensive full-stack training,
+    where I built a strong foundation in JavaScript, React, Node.js, and databases.
+    Very quickly, I was drawn to frontend development and user experience.
+    I enjoy taking ideas and designs and turning them into clean, interactive interfaces.
+    Using tools like React and GSAP, I focus on performance, clarity, and creating experiences
+    that feel intuitive, smooth, and engaging."`
             },
             {
                 title: "My Journey Into Development",
                 subtitle: "Growth Through Teaching",
-                text: `"As a Teaching Assistant, I had the opportunity to mentor and guide others,
-answering technical questions and supporting students in their learning journey.
-This experience enhanced my own understanding through teaching,
-strengthened my communication abilities, and developed my leadership skills.
-I learned to work effectively in professional environments,
-translating complex technical concepts into clear, actionable guidance."`
+                text: `"As a Teaching Assistant, I moved from learning to guiding others.
+    I supported students through complex technical challenges,
+    reviewed code, and helped turn confusion into confidence.
+    Teaching sharpened my own skills, strengthened my communication,
+    and taught me how to explain complex ideas simply.
+    It also showed me the value of teamwork, ownership, and leadership in real projects."`
             },
             {
                 title: "My Journey Into Development",
                 subtitle: "Enterprise Impact",
-                text: `"A significant milestone in my career was joining Bank Leumi
-as a Salesforce and Full-Stack Developer. I leverage Apex, React, and Node.js
-to build enterprise solutions that serve thousands of users daily.
-This role enables continuous technical growth, collaboration with industry professionals,
-and application of the discipline, persistence, and communication skills I've developed.
-Beyond coding, I focus on architecting solutions, fostering team collaboration,
-and delivering measurable business impact."`
-            }
-        ]
-    },
-
-    // Experience Section
-    experience: {
-        title: "Professional Experience",
-        items: [
-            {
-                role: "Full-Stack & Salesforce Developer",
-                company: "Bank Leumi",
-                period: "2025 – Present",
-                description: "Develop and maintain enterprise Salesforce solutions utilizing Apex and Lightning Web Components. Manage high-volume data processing with emphasis on performance optimization and code maintainability. Collaborate within cross-functional teams using agile methodologies to deliver scalable solutions. Contributed to major initiatives including the 'Write to a Banker' digital experience platform (Pepper / Bank Leumi)."
-            },
-            {
-                role: "Full-Stack Developer",
-                company: "Coding Academy (Bootcamp & Mentoring)",
-                period: "Feb 2024 – Jun 2025",
-                description: "Developed comprehensive full-stack applications using React, Vue, Angular, Express.js, and MongoDB. Conducted technical code reviews for junior developers, focusing on architectural patterns and clean code principles. Provided mentorship on database integration strategies, cloud API implementations, and deployment best practices."
+                text: `"Joining Bank Leumi marked a major step in my professional growth.
+    As a Full-Stack and Salesforce Developer, I work on large-scale systems
+    used daily by thousands of bankers and customers.
+    I develop enterprise solutions using Apex, React, and Node.js,
+    collaborating within large teams on systems that run continuously.
+    This role pushes me to think beyond code, focusing on reliability,
+    architecture, and delivering real business impact."`
             }
         ]
     },
@@ -134,4 +115,5 @@ and delivering measurable business impact."`
         goToHomepage: "ZOHAR. - Go to homepage"
     }
 };
+
 

@@ -1,3 +1,5 @@
+import { labels } from '../../customLabels/customLabels';
+
 export const BREAKPOINTS = {
     mobile: 640,
     tablet: 1024,
@@ -29,42 +31,27 @@ export const FLOAT_CONFIG = [
 
 export const SCENE_DATA = [
     {
-        title: "My Journey Into Development",
-        subtitle: "The First Step",
+        title: labels.animatedSentence.scenes[0].title,
+        subtitle: labels.animatedSentence.scenes[0].subtitle,
         subtitleBg: "bg-orange-600",
-        text: `"My journey started with a full-stack course.
-I learned the foundations JavaScript, Node, databases, and React
-and quickly realized I'm obsessed with the front end.
-Animation became my language: with React and GSAP I turn static designs
-into interactive stories. Today I code clean, performance-minded UI
-and craft experiences that feel alive."`,
+        text: labels.animatedSentence.scenes[0].text,
         titleRotate: "rotate-2",
         subtitleRotate: "-rotate-2",
     },
     {
-        title: "My Journey Into Development",
-        subtitle: "The Second Step",
+        title: labels.animatedSentence.scenes[1].title,
+        subtitle: labels.animatedSentence.scenes[1].subtitle,
         subtitleBg: "bg-blue-300",
-        text: `"In the second step, I worked as a Teaching Assistant.
-This experience gave me the opportunity to teach others, answer questions, 
-and support students in understanding the material.
-By explaining concepts to others, I strengthened my own knowledge, gained confidence,
-and developed valuable skills in working with people in a professional setting."`,
+        text: labels.animatedSentence.scenes[1].text,
         titleRotate: "-rotate-2",
         subtitleRotate: "rotate-2",
         subtitleLeft: "left-[120px] lg:left-[280px]",
     },
     {
-        title: "My Journey Into Development",
-        subtitle: "The Third Step",
+        title: labels.animatedSentence.scenes[2].title,
+        subtitle: labels.animatedSentence.scenes[2].subtitle,
         subtitleBg: "bg-yellow-500",
-        text: `"In the third step I reached a big milestone — I joined Bank Leumi
-as a Salesforce and Full-Stack Developer, where I combine Apex, React,
-and Node.js to create real-world solutions used by thousands of people.
-This position allows me to grow my technical expertise, work with professionals,
-and apply the persistence, discipline, and communication skills I built along my journey.
-It is not only about writing code anymore, but about shaping solutions,
-collaborating in a team, and making a real impact."`,
+        text: labels.animatedSentence.scenes[2].text,
         titleRotate: "-rotate-2",
         subtitleRotate: "rotate-2",
         subtitleLeft: "left-[120px] lg:left-[280px]",
