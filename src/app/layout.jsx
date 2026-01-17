@@ -1,4 +1,5 @@
 import { Geist, Geist_Mono, Inter, Poppins } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -93,9 +94,8 @@ export default function RootLayout({ children }) {
     "telephone": "+972-53-339-3504",
     "url": process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
     "sameAs": [
-      // Add your social media profiles here
-      // "https://github.com/yourusername",
-      // "https://linkedin.com/in/yourusername",
+      "https://github.com/zoar2307",
+      "https://www.linkedin.com/in/zohar-yevelkin/",
     ],
     "knowsAbout": [
       "Full-Stack Development",
@@ -130,6 +130,7 @@ export default function RootLayout({ children }) {
           Skip to main content
         </a>
         {children}
+        <Analytics />
       </body>
     </html>
   );
